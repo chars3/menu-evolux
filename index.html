@@ -4,8 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Header evolux</title>
+
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/edefe71c53.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <nav class="menu-mobile">menu</nav>
+    <nav class="menu-mobile">
+      <div class="toggle-menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark" style="display: none"></i>
+      </div>
+
+      <div class="menu-container" style="display: none">
+        <ul class="menu-links">
+          <li>
+            <a href="#">item 1</a>
+          </li>
+          <li>
+            <a href="#">item 2</a>
+          </li>
+          <li>
+            <a href="#">item 3</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <script>
+      jQuery(document).ready(function () {
+        $(".toggle-menu").on("click", function () {
+          // Alterna a classe 'open' no menu mobile
+          $(".menu-mobile").toggleClass("open");
+
+          // Alterna a visibilidade do menu
+          $(".menu-container").toggle();
+
+          // Verifica se o menu está aberto
+          if ($(".menu-mobile").hasClass("open")) {
+            // Exibe o ícone 'fa-xmark' e esconde o 'fa-bars'
+            $(".fa-xmark").show();
+            $(".fa-bars").hide();
+          } else {
+            // Esconde o ícone 'fa-xmark' e exibe o 'fa-bars'
+            $(".fa-xmark").hide();
+            $(".fa-bars").show();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
